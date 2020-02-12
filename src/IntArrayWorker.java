@@ -11,7 +11,22 @@ public class IntArrayWorker {
 	public void setMatrix(int[][] theMatrix) {
 		matrix = theMatrix;
 	}
+	public int getCount(int num)
+	{
+		int total = 0;
+		for (int row = 0; row < matrix.length; row++) {
+			for (int col = 0; col < matrix[0].length; col++) {
+				if(matrix[row][col] == num)
+				{
+					total++;
+				};
+			}
+		}
+		return total;
 
+	}
+
+	
 	/**
 	 * Method to return the total
 	 * 
@@ -25,6 +40,19 @@ public class IntArrayWorker {
 			}
 		}
 		return total;
+	}
+
+	public int getLargest() {
+		int largest = 0;
+		for (int row = 0; row < matrix.length; row++) {
+			for (int col = 0; col < matrix[0].length; col++) {
+				if(matrix[row][col] > largest)
+				{
+					largest = matrix[row][col];
+				}
+			}
+		}
+		return largest;
 	}
 
 	/**
