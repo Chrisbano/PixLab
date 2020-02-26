@@ -17,6 +17,14 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+    
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -25,31 +33,38 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalltoRight();
+    caterpillar.explore();
+  }
   
   /** Method to test mirrorTemple */
-  public static void testMirrorTemple()
-  {
-    Picture temple = new Picture("temple.jpg");
-    temple.explore();
-    temple.mirrorTemple();
-    temple.explore();
-  }
+  // public static void testMirrorTemple()
+  // {
+  //   Picture temple = new Picture("temple.jpg");
+  //   temple.explore();
+  //   temple.mirrorTemple();
+  //   temple.explore();
+  // }
   
   /** Method to test the collage method */
-  public static void testCollage()
-  {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
-  }
+  // public static void testCollage()
+  // {
+  //   Picture canvas = new Picture("640x480.jpg");
+  //   canvas.createCollage();
+  //   canvas.explore();
+  // }
   
-  /** Method to test edgeDetection */
-  public static void testEdgeDetection()
-  {
-    Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
-    swan.explore();
-  }
+  // /** Method to test edgeDetection */
+  // public static void testEdgeDetection()
+  // {
+  //   Picture swan = new Picture("swan.jpg");
+  //   swan.edgeDetection(10);
+  //   swan.explore();
+  // }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -58,14 +73,16 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
+    // testZeroBlue();
+    //  testKeepOnlyBlue();
     //testKeepOnlyRed();
+      // testNegate();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    //testMirrorVertical();
+    // testMirrorVertical();
+    testMirrorVerticalRightToLeft();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

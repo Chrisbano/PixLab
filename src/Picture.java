@@ -113,6 +113,40 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void mirrorVerticalltoRight() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length; row++) {
+			for (int col = 0; col < width / 2; col++) {
+				rightPixel = pixels[row][col];
+				leftPixel = pixels[row][width - 1 - col];
+				leftPixel.setColor(rightPixel.getColor());
+			}
+		}
+
+		
+		
+	}
+
+	public void mirrorHorizontal() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int height = pixels.length;
+		for (int row = 0; row < pixels.length; row++) {
+			for (int col = 0; col < width / 2; col++) {
+				rightPixel = pixels[row][col];
+				leftPixel = pixels[row][width - 1 - col];
+				leftPixel.setColor(rightPixel.getColor());
+			}
+		}
+
+		
+		
+	}
+
 	/** Mirror just part of a picture of a temple */
 	public void mirrorTemple() {
 		int mirrorPoint = 276;
@@ -128,7 +162,7 @@ public class Picture extends SimplePicture {
 
 				leftPixel = pixels[row][col];
 				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
-				rightPixel.setColor(leftPixel.getColor());
+				leftPixel.setColor(rightPixel.getColor());
 			}
 		}
 	}
@@ -156,6 +190,29 @@ public class Picture extends SimplePicture {
 				fromPixel = fromPixels[fromRow][fromCol];
 				toPixel = toPixels[toRow][toCol];
 				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
+
+	public void negate(){
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				pixelObj.setBlue(pixelObj.getBlue() - 255);
+				pixelObj.setGreen(pixelObj.getGreen() - 255);
+				pixelObj.setRed(pixelObj.getRed() - 255);
+			}
+		}
+	}
+	public void greyscale(){
+		
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				int avg = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3;
+				pixelObj.setBlue(avg);
+				pixelObj.setGreen(avg);
+				pixelObj.setRed(avg);
 			}
 		}
 	}
